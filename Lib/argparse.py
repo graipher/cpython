@@ -1230,6 +1230,12 @@ class Namespace(_AttributeHolder):
 
     def __contains__(self, key):
         return key in self.__dict__
+    
+    def __getitem__(self, key):
+        return getattr(self, key)
+    
+    def keys(self):
+        return vars(self).keys()
 
 
 class _ActionsContainer(object):
